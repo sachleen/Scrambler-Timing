@@ -18,7 +18,7 @@ void setup()
     pinMode(ledPin, OUTPUT);
     digitalWrite(ledPin, 0);
     
-    TinySerial.write("Starting Start Line Sensor\n");
+    TinySerial.write("Starting...\n");
     
     bool startTripped = true;
     bool finishTripped = true;
@@ -31,7 +31,7 @@ void setup()
             finishTripped = digitalRead(signalPin) == 1;
         }
         
-        TinySerial.write("Sensors aligned.");
+        TinySerial.write("Ready.\n");
         
         // Wait until the start sensors is tripped
         while (!startTripped) {
@@ -39,6 +39,8 @@ void setup()
         }
         
         unsigned long startTime = millis();
+        
+        TinySerial.write("Start Time!\n");
         
         digitalWrite(ledPin, 1);
         
@@ -49,8 +51,9 @@ void setup()
         unsigned long endTime = millis();
         
         digitalWrite(ledPin, 1);
+        TinySerial.write("Time (ms):\n");
         printTime(endTime-startTime);
-
+        TinySerial.write("\n");
     }
     
 }
