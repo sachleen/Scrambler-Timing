@@ -7,7 +7,7 @@ int ledPin = 3;
 SoftwareSerialTX TinySerial(SoftwareSerialTX::BAUD_9600, PIN_TX);
 
 bool tripped = false; // sets to true when laser beam is broken.
-int threshold = 900;
+int threshold = 990;
 
 unsigned long startTime = 0;
 unsigned long endTime = 0;
